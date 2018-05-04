@@ -1,0 +1,32 @@
+{
+  "name": "node-scraping-mysql",
+  "version": "1.0.0",
+  "description": "node-scraping-mysql",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "mocha test",
+    "test:coverage": "nyc mocha test"
+  },
+  "keywords": [
+    "node",
+    "scraping",
+    "mysql"
+  ],
+  "author": "Dídac García",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "cron": "^1.3.0",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.1"
+  },
+  "engines": {
+    "node": "9.4.0"
+  }
+}
