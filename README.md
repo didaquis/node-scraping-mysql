@@ -8,6 +8,9 @@ This is a Node.js application. This application scrapp data of a website and sto
 ## How to use
 * Download repo
 * Install dependencies `npm install`
+* You must configure the authentication data for MySQL.
+  * Write your credentials in file `_env` or use provided examples data
+  * Rename the file `_env` to `.env`
 * Execute script with `node .` or `npm start`
 
 ## Suggestion

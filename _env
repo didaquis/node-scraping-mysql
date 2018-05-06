@@ -1,0 +1,5 @@
+# MySQL CONFIGURATION
+DB_HOST=localhost
+DB_DATABSE=node-scraping-mysql
+DB_USER=scraping_user
+DB_PASS=scraping_pass
