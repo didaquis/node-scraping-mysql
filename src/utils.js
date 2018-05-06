@@ -1,12 +1,11 @@
 
 /**
- * Remove space and non-alphanumeric characters from text.
+ * Remove space, remove non-alphanumeric characters and convert to lower case
  * @param {string} text 
  * @returns {string} Parsed string
  */
 function parseText(text) {
-	// Throw away extra white space and non-alphanumeric characters.
-	return text.replace(/\s+/g, ' ').replace(/[^a-zA-Z0-9 ]/g, '').toLowerCase();
+	return text.replace(/\s+/g, ' ').replace(/[^a-zA-Z0-9 ]/g, ' ').toLowerCase();
 }
 
 /**

@@ -5,7 +5,7 @@ const assertChai = require('chai').assert;
 
 describe('Testing utils', () => {
 
-	it('parseText function should remove space and non-alphanumeric characters from text', () => {
+	it('parseText function should remove space, remove non-alphanumeric characters and convert to lower case', () => {
 		const text = 'The [] cake - is ... a / lie ?';
 		const result = parseText(text);
 
@@ -26,9 +26,13 @@ describe('Testing utils', () => {
 		expect(result).to.include('a');
 		expect(result).to.include('k');
 		expect(result).to.include('e');
+	});
 
+
+	it('parseText function should convert to lower case', () => {
 		assertChai.strictEqual(parseText('FOO'), 'foo');
 	});
+
 
 	it('arrayOfWords function should create an array of words from string', () => {
 		const text = 'The cake is a lie';
@@ -43,6 +47,18 @@ describe('Testing utils', () => {
 		expect(result).to.include('is');
 		expect(result).to.include('a');
 		expect(result).to.include('lie');
+
+		assertChai.lengthOf(arrayOfWords(' '), 0);
+		expect(arrayOfWords(' ')).to.be.an('array');
+	});
+
+	
+	it('arrayOfWords function should create an empty array from empty string', () => {
+		assertChai.lengthOf(arrayOfWords(' '), 0);
+		expect(arrayOfWords(' ')).to.be.an('array');
+
+		assertChai.lengthOf(arrayOfWords(''), 0);
+		expect(arrayOfWords('')).to.be.an('array');
 	});
 
 });
