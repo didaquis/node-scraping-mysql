@@ -1,6 +1,7 @@
 const { parseText, arrayOfWords } = require('./../src/utils');
 
 const CronJob = require('cron').CronJob;
+require('dotenv').config();
 
 const expect = require('chai').expect;
 const assertChai = require('chai').assert;
@@ -61,7 +62,7 @@ describe('Testing utils', () => {
 		assertChai.lengthOf(arrayOfWords(''), 0);
 		expect(arrayOfWords('')).to.be.an('array');
 	});
-
+	
 });
 
 describe('Testing CronJob patterns', () => {
@@ -109,6 +110,38 @@ describe('Testing CronJob patterns', () => {
 			expect(e).to.instanceOf(Error);
 		}
 
+	});
+
+});
+
+describe('Testing enviroment vars', () => {
+	it('DB_HOST var should be defined', () => {
+		expect(process.env.DB_HOST).not.to.be.undefined;
+		expect(process.env.DB_HOST).not.to.equal('');
+	});
+
+
+	it('DB_PORT var should be defined', () => {
+		expect(process.env.DB_PORT).not.to.be.undefined;
+		expect(process.env.DB_PORT).not.to.equal('');
+	});
+
+
+	it('DB_DATABASE var should be defined', () => {
+		expect(process.env.DB_DATABASE).not.to.be.undefined;
+		expect(process.env.DB_DATABASE).not.to.equal('');
+	});
+
+
+	it('DB_USER var should be defined', () => {
+		expect(process.env.DB_USER).not.to.be.undefined;
+		expect(process.env.DB_USER).not.to.equal('');
+	});
+
+
+	it('DB_PASS var should be defined', () => {
+		expect(process.env.DB_PASS).not.to.be.undefined;
+		expect(process.env.DB_PASS).not.to.equal('');
 	});
 
 });
