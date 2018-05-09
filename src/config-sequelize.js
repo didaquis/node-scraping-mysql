@@ -11,6 +11,6 @@ const Sequelize = require('sequelize');
 /**
  * create an instance of connection
  */
-const sequelize = new Sequelize(`mysql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`);
+const sequelize = new Sequelize(`mysql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`, { logging: false, operatorsAliases: false });
 
 module.exports = { sequelize };
