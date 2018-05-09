@@ -8,26 +8,9 @@ const DB_PASS = process.env.DB_PASS;
 
 const Sequelize = require('sequelize');
 
+/**
+ * create an instance of connection
+ */
 const sequelize = new Sequelize(`mysql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`);
 
-const Scraping_results = sequelize.define('scraping_results',
-	{
-		id: {
-			autoIncrement: true,
-			primaryKey: true,
-			type: Sequelize.INTEGER
-		},
-
-		href: {
-			type: Sequelize.STRING,
-			allowNull: true
-		},
-
-		results: {
-			type: Sequelize.TEXT,
-			allowNull: true
-		}
-	}
-);
-
-module.exports = { sequelize, Scraping_results };
+module.exports = { sequelize };

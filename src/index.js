@@ -28,7 +28,7 @@ const mainTask = new CronJob({
 
 
 /**
- * Login database
+ * Login database and then, execute main task
  */
 sequelize.authenticate()
 	.then(() => {
