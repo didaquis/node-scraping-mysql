@@ -15,9 +15,10 @@ const targetWebsite = 'https://en.wikipedia.org/wiki/Special:Random';
  * '00 00 10-23 * * *' (every hour from 10AM to 23PM)
  * '00 00,20,40 * * * *' (every hour on minute 00, 20 and 40)
  * '00 00 22 * * *' (every day at minute 22:00:00 PM)
+ * '00 * * * * *' (every minute)
  */
 const mainTask = new CronJob({
-	cronTime: '00,10,20,30,40,50 * * * * *',
+	cronTime: '00 * * * * *',
 	onTick: function() {
 		// task to execute:
 		scrapingWebsiteAndSaveDataOnDatabase(targetWebsite);

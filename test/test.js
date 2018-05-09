@@ -91,6 +91,16 @@ describe('Testing CronJob patterns', () => {
 			new CronJob('00 00 22 * * *', function () {
 			});
 		}).not.to.throw();
+
+		expect(() => {
+			new CronJob('00,10,20,30,40,50 * * * * *', function () {
+			});
+		}).not.to.throw();
+		
+		expect(() => {
+			new CronJob('00 * * * * *', function () {
+			});
+		}).not.to.throw();
 	});
 
 	it('should be invalid patterns', () => {
