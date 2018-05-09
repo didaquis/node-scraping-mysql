@@ -1,6 +1,6 @@
 {
   "name": "node-scraping-mysql",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "node-scraping-mysql",
   "main": "src/index.js",
   "scripts": {
@@ -22,11 +22,11 @@
     "mysql2": "^1.5.3",
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
-    "sequelize": "^4.37.6"
+    "sequelize": "^4.37.7"
   },
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.1.1",
-    "nyc": "^11.7.1"
+    "nyc": "^11.7.2"
   }
 }
