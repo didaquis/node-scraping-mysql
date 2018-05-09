@@ -30,4 +30,4 @@ const Scraping_results = sequelize.define('scraping_results',
 	}
 );
 
-module.exports = { sequelize };
+module.exports = { sequelize, Scraping_results };

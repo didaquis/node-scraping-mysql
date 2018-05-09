@@ -1,32 +1,41 @@
 const CronJob = require('cron').CronJob;
 const { scrapingWebsiteAndSaveDataOnDatabase } = require('./scraping');
 
+const { sequelize } = require('./config-sequelize');
+
 /**
  * Define target of scraping
  */
 const targetWebsite = 'https://en.wikipedia.org/wiki/Special:Random';
 
+
 /**
- * Cron task schedule. define how often execute a task.
+ * Cron task schedule. Define how often execute a task.
  * Example: 
  * '00 00 10-23 * * *' (every hour from 10AM to 23PM)
  * '00 00,20,40 * * * *' (every hour on minute 00, 20 and 40)
+ * '00 00 22 * * *' (every day at minute 22:00:00 PM)
  */
-new CronJob('00 00 22 * * *', () => {
-	// task to execute:
-	executeTasks();
-}, null, true, 'Europe/Madrid');
+const mainTask = new CronJob({
+	cronTime: '00,10,20,30,40,50 * * * * *',
+	onTick: function() {
+		// task to execute:
+		scrapingWebsiteAndSaveDataOnDatabase(targetWebsite);
+	},
+	start: false,
+	timeZone: 'Europe/Madrid'
+});
+
 
 /**
- * Execute list of tasks
+ * Login database
  */
-function executeTasks() {
-	// Main task
-	scrapingWebsiteAndSaveDataOnDatabase(targetWebsite);
-}
+sequelize.authenticate()
+	.then(() => {
+		//console.log('Connection has been established successfully.');
+		mainTask.start(); // Init cron job defined as 'mainTask'
+	})
+	.catch(err => {
+		console.error('Unable to connect to the database:', err);
+	});
 
-
-
-
-
-executeTasks(); // TODO: quitar esta linea y descomentar la que hay dentro del cron.
