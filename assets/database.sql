@@ -34,8 +34,11 @@ DROP TABLE IF EXISTS `scraping_results`;
 CREATE TABLE `scraping_results` (
   `id` int(11) NOT NULL,
   `href` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `results` text COLLATE utf8mb4_unicode_ci
+  `results` text COLLATE utf8mb4_unicode_ci,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 
 --
 -- Índices para tablas volcadas
