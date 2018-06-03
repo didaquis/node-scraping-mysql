@@ -1,12 +1,12 @@
 {
   "name": "node-scraping-mysql",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "node-scraping-mysql",
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
-    "test": "mocha test",
-    "test:coverage": "nyc mocha test"
+    "test": "mocha test --exit",
+    "test:coverage": "nyc mocha test --exit"
   },
   "keywords": [
     "node",
