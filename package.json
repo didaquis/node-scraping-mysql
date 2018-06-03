@@ -1,6 +1,6 @@
 {
   "name": "node-scraping-mysql",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "node-scraping-mysql",
   "main": "src/index.js",
   "scripts": {
@@ -18,15 +18,15 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "cron": "^1.3.0",
-    "dotenv": "^5.0.1",
+    "dotenv": "^6.0.0",
     "mysql2": "^1.5.3",
-    "request": "^2.85.0",
+    "request": "^2.87.0",
     "request-promise": "^4.2.2",
-    "sequelize": "^4.37.7"
+    "sequelize": "^4.37.10"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.1.1",
-    "nyc": "^11.7.2"
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.1"
   }
 }
