@@ -1,4 +1,5 @@
 const { parseText, arrayOfWords } = require('./../src/utils');
+const { sequelize } = require('../src/config-sequelize');
 
 const CronJob = require('cron').CronJob;
 require('dotenv').config();
@@ -152,6 +153,27 @@ describe('Testing enviroment vars', () => {
 	it('DB_PASS var should be defined', () => {
 		expect(process.env.DB_PASS).not.to.be.undefined;
 		expect(process.env.DB_PASS).not.to.equal('');
+	});
+
+});
+
+describe('Testing database connection', () => {
+	it('Should connect to database', (done) => {
+		const resolvingPromise = new Promise( (resolve) =>{
+			sequelize.authenticate()
+			.then(() => {
+				resolve('Connection with database has been successful');
+				
+			})
+			.catch( () => {
+				resolve('Unable to connect to the database:');
+			});
+		});
+
+		resolvingPromise.then( (result) => {
+	    	expect(result).to.equal('Connection with database has been successful');
+	    	done();
+	  	}).catch(done);
 	});
 
 });
