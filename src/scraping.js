@@ -17,7 +17,7 @@ function scrapingWebsiteAndSaveDataOnDatabase(targetWebsite) {
 			}
 		})
 		.catch((err) => {
-			console.error(err);
+			console.error(err); // eslint-disable-line no-console
 		});
 }
 
@@ -71,9 +71,9 @@ function saveOnDatabase(hrefValue, listOfWords) {
 	// insert data on database
 	dataToStore.save().
 		then(() => {
-			console.log('Data successfully inserted!');
+			console.log('Data successfully inserted!'); // eslint-disable-line no-console
 		}).catch(err => {
-			console.error('Error in Inserting Record:', err);
+			console.error('Error inserting record:', err); // eslint-disable-line no-console
 		});
 }
 

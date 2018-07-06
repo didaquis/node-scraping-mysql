@@ -37,6 +37,6 @@ sequelize.authenticate()
 		mainTask.start(); // Init cron job defined as 'mainTask'
 	})
 	.catch(err => {
-		console.error('Unable to connect to the database:', err);
+		console.error('Unable to connect to the database:', err); // eslint-disable-line no-console
 	});
 
