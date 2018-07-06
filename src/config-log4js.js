@@ -8,7 +8,7 @@ const log4js = require('log4js');
  *
  * @example
  * 		logger.trace('trace');
- *  	logger.debug('debug.');
+ *  	logger.debug('debug');
  * 		logger.info('info');
  * 		logger.warn('warn');
  * 		logger.error('error');

@@ -34,10 +34,10 @@ const mainTask = new CronJob({
  */
 sequelize.authenticate()
 	.then(() => {
-		//console.log('Connection has been established successfully.');
+		logger.debug('Connection has been established successfully.');
 		mainTask.start(); // Init cron job defined as 'mainTask'
 	})
 	.catch(err => {
-		console.error('Unable to connect to the database:', err); // eslint-disable-line no-console
+		logger.error('Unable to connect to the database:', err.message);
 	});
 

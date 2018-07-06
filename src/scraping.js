@@ -1,5 +1,6 @@
 const { parseText, arrayOfWords } = require('./utils');
 const { Scraping_results } = require('./scraping_results-model');
+const { logger } = require('./config-log4js');
 
 const rp = require('request-promise');
 const cheerio = require('cheerio');
@@ -17,7 +18,7 @@ function scrapingWebsiteAndSaveDataOnDatabase(targetWebsite) {
 			}
 		})
 		.catch((err) => {
-			console.error(err); // eslint-disable-line no-console
+			logger.error('scrapingWebsiteAndSaveDataOnDatabase: ', err.message);
 		});
 }
 
@@ -71,9 +72,9 @@ function saveOnDatabase(hrefValue, listOfWords) {
 	// insert data on database
 	dataToStore.save().
 		then(() => {
-			console.log('Data successfully inserted!'); // eslint-disable-line no-console
+			logger.debug('Data successfully saved in the database');
 		}).catch(err => {
-			console.error('Error inserting record:', err); // eslint-disable-line no-console
+			logger.error('Error saving data in the database: ', err.message);
 		});
 }
 
