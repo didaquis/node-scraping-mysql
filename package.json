@@ -1,13 +1,14 @@
 {
   "name": "node-scraping-mysql",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "node-scraping-mysql",
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
     "test": "mocha test --exit",
     "test:coverage": "nyc mocha test --exit",
-    "doc-view": "jsdoc --private -c ./conf_jsdoc.json && live-server --host=localhost --port=4400 --open=doc/"
+    "doc-view": "jsdoc --private -c ./conf_jsdoc.json && live-server --host=localhost --port=4400 --open=doc/",
+    "purge": "rm -fr ./doc  && rm -fr ./logs"
   },
   "keywords": [
     "node",
@@ -20,6 +21,7 @@
     "cheerio": "^1.0.0-rc.2",
     "cron": "^1.3.0",
     "dotenv": "^6.0.0",
+    "log4js": "^2.10.0",
     "mysql2": "^1.5.3",
     "request": "^2.87.0",
     "request-promise": "^4.2.2",

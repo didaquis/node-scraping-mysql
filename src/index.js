@@ -1,6 +1,7 @@
 const CronJob = require('cron').CronJob;
 const { scrapingWebsiteAndSaveDataOnDatabase } = require('./scraping');
 
+const { logger } = require('./config-log4js');
 const { sequelize } = require('./config-sequelize');
 
 /**
