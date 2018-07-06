@@ -12,4 +12,7 @@ This is a Node.js application. This application scrap data from Wikipedia websit
 * Execute script with `node .` or `npm start`
 * Every minute you got new data on bdd!
 
-For run test: `npm run test:coverage`
+For run test: `npm run test:coverage`  
+
+For run documentation: `npm run doc-view`  
+

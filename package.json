@@ -1,12 +1,13 @@
 {
   "name": "node-scraping-mysql",
-  "version": "0.0.5",
+  "version": "0.1.6",
   "description": "node-scraping-mysql",
   "main": "src/index.js",
   "scripts": {
     "start": "node .",
     "test": "mocha test --exit",
-    "test:coverage": "nyc mocha test --exit"
+    "test:coverage": "nyc mocha test --exit",
+    "doc-view": "jsdoc --private -c ./conf_jsdoc.json && live-server --host=localhost --port=4400 --open=doc/"
   },
   "keywords": [
     "node",
@@ -26,6 +27,8 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "jsdoc": "^3.5.5",
+    "live-server": "^1.2.0",
     "mocha": "^5.2.0",
     "nyc": "^12.0.1"
   }
