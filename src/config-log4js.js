@@ -6,8 +6,7 @@
 const log4js = require('log4js');
 
 /**
- * log4js configuration.
- * @type {Object}
+ * log4js configuration (All loggers are printed in console. Loggers WARN, ERROR and FATAL are logged in a log file).
  * @example
  * logger.trace('trace');
  * logger.debug('debug');
@@ -15,8 +14,6 @@ const log4js = require('log4js');
  * logger.warn('warn');
  * logger.error('error');
  * logger.fatal('fatal');
- * // All loggers are printed in console! 
- * // Loggers WARN, ERROR and FATAL are logged in a log file.
  */
 log4js.configure({
 	appenders: {
