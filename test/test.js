@@ -161,19 +161,18 @@ describe('Testing database connection', () => {
 	it('Should connect to database', (done) => {
 		const resolvingPromise = new Promise( (resolve) =>{
 			sequelize.authenticate()
-			.then(() => {
-				resolve('Connection with database has been successful');
-				
-			})
-			.catch( () => {
-				resolve('Unable to connect to the database:');
-			});
+				.then(() => {
+					resolve('Connection with database has been successful');
+				})
+				.catch( () => {
+					resolve('Unable to connect to the database:');
+				});
 		});
 
 		resolvingPromise.then( (result) => {
-	    	expect(result).to.equal('Connection with database has been successful');
-	    	done();
-	  	}).catch(done);
+			expect(result).to.equal('Connection with database has been successful');
+			done();
+		}).catch(done);
 	});
 
 });

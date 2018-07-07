@@ -1,3 +1,8 @@
+/* Home doc */
+/**
+ * @file Entry point of application. Manage task schedule
+ */
+
 const CronJob = require('cron').CronJob;
 const { scrapingWebsiteAndSaveDataOnDatabase } = require('./scraping');
 

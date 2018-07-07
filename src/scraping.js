@@ -1,3 +1,8 @@
+/* Home doc */
+/**
+ * @file Retrieve data, process it and then send to database.
+ */
+
 const { parseText, arrayOfWords } = require('./utils');
 const { Scraping_results } = require('./scraping_results-model');
 const { logger } = require('./config-log4js');
@@ -14,7 +19,7 @@ function scrapingWebsiteAndSaveDataOnDatabase(targetWebsite) {
 		.then((response) => {
 			if (response.status === 200) {
 				// send response for process it
-				scrapingResponse(response);
+				scrapingResponse(response,saveOnDatabase);
 			}
 		})
 		.catch((err) => {
@@ -25,7 +30,7 @@ function scrapingWebsiteAndSaveDataOnDatabase(targetWebsite) {
 /**
  * Execute request and return a custom formed response
  * @param {string} targetURL - a valid URL
- * @returns {Promise} Return custom response
+ * @returns {Promise} Return an object with custom response
  */
 function retrieveDataFromTargetWebsite(targetURL) {
 	return Promise.resolve().then(() => {
@@ -43,18 +48,19 @@ function retrieveDataFromTargetWebsite(targetURL) {
 }
 
 /**
- * Process custom response and then, send it to store
+ * Process custom response and then, send it to callback
  * @param {object} response 
+ * @param {function} callback
  */
-function scrapingResponse(response) {
+function scrapingResponse(response, cb) {
 	const $ = cheerio.load(response.body);
 	const text = $('#mw-content-text').children('.mw-parser-output').children('p').text();
 	const textParsed = parseText(text);
 	const words = arrayOfWords(textParsed);
 	const listOfWords = JSON.stringify(words);
 
-	// send processed response to store it (target url of scraping, data obtained from scraping)
-	saveOnDatabase(response.href,listOfWords);
+	// send processed response to callback (target url of scraping, data obtained from scraping)
+	cb(response.href,listOfWords);
 }
 
 /**

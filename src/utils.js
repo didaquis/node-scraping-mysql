@@ -1,3 +1,7 @@
+/* Home doc */
+/**
+ * @file Some useful functions
+ */
 
 /**
  * Remove space, remove non-alphanumeric characters and convert to lower case

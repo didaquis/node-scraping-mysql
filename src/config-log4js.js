@@ -1,5 +1,11 @@
+/* Home doc */
 /**
- * logger module
+ * @file Manages the configuration settings for logger module.
+ */
+
+/* Module doc */
+/**
+ * Configuration settings for logger module
  * @module logger
  */
 
