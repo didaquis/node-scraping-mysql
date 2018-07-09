@@ -11,6 +11,9 @@ const { sequelize } = require('./config-sequelize');
 
 /**
  * Define url target of scraping
+ * @constant
+ * @type {string}
+ * @default
  */
 const targetWebsite = 'https://en.wikipedia.org/wiki/Special:Random';
 

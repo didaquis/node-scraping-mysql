@@ -11,11 +11,32 @@
 
 require('dotenv').config();
 
+/**
+ * @constant
+ * @type {string}
+ */
 const DB_HOST = process.env.DB_HOST;
+/**
+ * @constant
+ * @type {number}
+ */
 const DB_PORT = process.env.DB_PORT;
+/**
+ * @constant
+ * @type {string}
+ */
 const DB_DATABASE = process.env.DB_DATABASE;
+/**
+ * @constant
+ * @type {string}
+ */
 const DB_USER = process.env.DB_USER;
+/**
+ * @constant
+ * @type {string}
+ */
 const DB_PASS = process.env.DB_PASS;
+
 
 const Sequelize = require('sequelize');
 
