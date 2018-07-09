@@ -13,9 +13,9 @@ const { sequelize } = require('./config-sequelize');
  */
 
 /**
- * Define model for 'scrapedDataModel' data
+ * Define model for 'scraping_results' table on database
  */
-const scrapedDataModel = sequelize.define('scrapedDataModel',
+const scrapedDataModel = sequelize.define('scraping_results',
 	{
 		id: {
 			autoIncrement: true,
