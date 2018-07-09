@@ -4,7 +4,7 @@
  */
 
 const { parseText, arrayOfWords } = require('./utils');
-const { Scraping_results } = require('./scraping_results-model');
+const { saveOnDatabase } = require('./saveOnDatabase');
 const { logger } = require('./config-log4js');
 
 const rp = require('request-promise');
@@ -63,27 +63,6 @@ function scrapingResponse(response, cb) {
 
 	// send processed response to callback (target url of scraping, data obtained from scraping)
 	cb(response.href,listOfWords);
-}
-
-/**
- * Store on database result of scraping website
- * @param {string} hrefValue - url scraped 
- * @param {string} listOfWords - data scraped from url
- */
-function saveOnDatabase(hrefValue, listOfWords) {
-	// prepare data
-	const dataToStore = Scraping_results.build({
-		href: hrefValue,
-		results: listOfWords
-	});
-
-	// insert data on database
-	dataToStore.save().
-		then(() => {
-			logger.debug('Data successfully saved in the database');
-		}).catch(err => {
-			logger.error('Error saving data in the database: ', err.message);
-		});
 }
 
 module.exports = {
