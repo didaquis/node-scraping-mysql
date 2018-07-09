@@ -8,14 +8,14 @@ const { sequelize } = require('./config-sequelize');
 
 /* Module doc */
 /**
- * Define model for 'scraping_results' data
- * @module Scraping_results
+ * Define model for 'scrapedDataModel' data
+ * @module scrapedDataModel
  */
 
 /**
- * Define model for 'scraping_results' data
+ * Define model for 'scrapedDataModel' data
  */
-const Scraping_results = sequelize.define('scraping_results',
+const scrapedDataModel = sequelize.define('scrapedDataModel',
 	{
 		id: {
 			autoIncrement: true,
@@ -35,4 +35,4 @@ const Scraping_results = sequelize.define('scraping_results',
 	}
 );
 
-module.exports = { Scraping_results };
+module.exports = { scrapedDataModel };

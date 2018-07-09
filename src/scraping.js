@@ -1,7 +1,14 @@
 /* Home doc */
 /**
  * @file Retrieve data, process it and then send to database.
+ * @see {@link src/scraping}
  */
+
+/**
+ * @namespace src/scraping
+ * @description Functions for scrap and process data
+ */
+
 
 const { parseText, arrayOfWords } = require('./utils');
 const { saveOnDatabase } = require('./saveOnDatabase');
@@ -13,6 +20,7 @@ const cheerio = require('cheerio');
 /**
  * Request data and then send it to process
  * @param {string} targetWebsite - a valid URL
+ * @memberOf src/scraping
  */
 function scrapingWebsiteAndSaveDataOnDatabase(targetWebsite) {
 	retrieveDataFromTargetWebsite(targetWebsite)
@@ -31,6 +39,7 @@ function scrapingWebsiteAndSaveDataOnDatabase(targetWebsite) {
  * Execute request and return a custom formed response
  * @param {string} targetURL - a valid URL
  * @returns {Promise} Return an object with custom response
+ * @memberOf src/scraping
  */
 function retrieveDataFromTargetWebsite(targetURL) {
 	return Promise.resolve().then(() => {
@@ -53,6 +62,7 @@ function retrieveDataFromTargetWebsite(targetURL) {
  * @param {string} response.body Response from request
  * @param {string} response.href URL target of scraping
  * @param {function} callback
+ * @memberOf src/scraping
  */
 function scrapingResponse(response, cb) {
 	const $ = cheerio.load(response.body);

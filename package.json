@@ -1,6 +1,6 @@
 {
   "name": "node-scraping-mysql",
-  "version": "0.2.16",
+  "version": "0.2.18",
   "description": "node-scraping-mysql",
   "main": "src/index.js",
   "scripts": {
