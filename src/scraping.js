@@ -49,7 +49,9 @@ function retrieveDataFromTargetWebsite(targetURL) {
 
 /**
  * Process custom response and then, send it to callback
- * @param {object} response 
+ * @param {object} response
+ * @param {string} response.body Response from request
+ * @param {string} response.href URL target of scraping
  * @param {function} callback
  */
 function scrapingResponse(response, cb) {
