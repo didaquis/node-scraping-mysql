@@ -1,6 +1,7 @@
 /* Home doc */
 /**
  * @file Manages the configuration settings for sequelize module.
+ * @see module:sequelize
  */
 
 /* Module doc */

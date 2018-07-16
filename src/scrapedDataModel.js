@@ -1,6 +1,7 @@
 /* Home doc */
 /**
  * @file Defined sequelize data model.
+ * @see module:scrapedDataModel
  */
 
 const Sequelize = require('sequelize');
@@ -14,6 +15,10 @@ const { sequelize } = require('./config-sequelize');
 
 /**
  * Define model for 'scraping_results' table on database
+ * @type {scraping_results}
+ * @property {integer} id Identificator of record
+ * @property {string|null} href The data's source url
+ * @property {string|null} results Data scraped
  */
 const scrapedDataModel = sequelize.define('scraping_results',
 	{
